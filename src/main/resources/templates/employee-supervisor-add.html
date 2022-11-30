@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Добавление начальника сотруднику</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <div th:insert="blocks/header" ></div>
+</head>
+<body>
+<h1>Добавление начальника сотруднику</h1>
+
+  <form th:action="${'/employee/supervisor/add'}" method="post">
+    <select  name="employee">
+      <div th:each="element : ${employees}">
+        <option th:value="${element.id}" th:text="${element.surname}"></option>
+      </div>
+    </select>
+    <select  name="supervisor">
+      <div th:each="element : ${supervisors}">
+        <option th:value="${element.id}" th:text="${element.name}"></option>
+      </div>
+    </select>
+    <br>
+    <button type="submit">Добавить начальника</button>
+  </form>
+
+</body>
+</html>

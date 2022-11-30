@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <div th:insert="blocks/header" ></div>
+
+</head>
+<body class="aaa">
+<h1>Должности</h1>
+<a href="/post/filter">Поиск должностей</a>
+<a href="/post/add">Добавить должность</a>
+<div th:each="el : ${posts}">
+    <h3 th:text="${el.namepost}"></h3>
+    <a th:text="${el.paid}"></a>
+    <a th:text="${el.maxsalary}"></a>
+    <a th:text="${el.salary}"></a>
+    <a th:text="${el.countemploey}"></a>
+    <br>
+    <a th:href="'/post/' + ${el.id}">Подробнее</a>
+</div>
+</body>
+</html>
